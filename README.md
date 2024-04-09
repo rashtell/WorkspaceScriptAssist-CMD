@@ -63,11 +63,3 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 ## License
 
 [MIT License](LICENSE)
-
----
-
-Feel free to customize the README further to better fit your project's specific requirements and provide any additional information or instructions as needed.
-
-```
-
-```
