@@ -598,26 +598,6 @@ if not exist "%sub_project_path%" (
 )
 ::#endregion
 
-:: Handle platform
-::#region
-set "platform_project_path=%platforms_path%\%platform%\%sub_project_name%"
-
-if not exist "%platform_project_path%" (
-    
-    set "platform_path=%workspace_path%\platforms\%platform%"
-
-    if not exist "!platform_path!" (
-        md "!platform_path!"
-    )
-    
-    mklink /D "%platform_project_path%" "%sub_project_path%"
-
-    echo Sub-project linked to platform.
-) else (
-    echo Sub-project already linked to platform.
-)
-::#endregion
-
 :: Handle organization
 ::#region
 set "organization_path=%organizations_path%\%organization_name%"
@@ -634,6 +614,25 @@ if not exist "%organization_project_path%" (
     echo Project linked to organization.
 ) else (
     echo Project already linked to organization.
+)
+::#endregion
+
+:: Handle platform
+::#region
+set "platform_path=%platforms_path%\%platform%"
+set "platform_project_path=%platform_path%\%sub_project_name%"
+
+if not exist "%platform_project_path%" (
+    
+    if not exist "!platform_path!" (
+        md "!platform_path!"
+    )
+    
+    mklink /D "%platform_project_path%" "%sub_project_path%"
+
+    echo Sub-project linked to platform.
+) else (
+    echo Sub-project already linked to platform.
 )
 ::#endregion
 
