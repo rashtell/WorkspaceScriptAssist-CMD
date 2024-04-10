@@ -8,6 +8,7 @@ This repository contains a set of scripts to automate the management of project 
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Requirements](#requirements)
+  - [Dependencies](#dependencies)
   - [Usage](#usage)
   - [Scripts Overview](#scripts-overview)
   - [Contributing](#contributing)
@@ -25,12 +26,19 @@ This repository contains a set of scripts to automate the management of project 
 - Administrative privileges to create and delete directories.
 - Command Prompt or PowerShell.
 
+## Dependencies
+
+- pascal-case.bat: This script is used for converting input names to camel case. Ensure it is available in the same directory as create-project.bat.
+
 ## Usage
 
 1. Clone or download this repository to your local machine.
-2. Open Command Prompt or PowerShell with administrative privileges.
-3. Navigate to the directory containing the scripts.
-4. Run the desired script using the following commands:
+2. **Setup Workspace**: Before using the script, set up your workspace directory where projects will be created and managed. 
+   1. By default, the workspace directory is set to C:\workspace. 
+   2. You can customize this path by modifying the workspace_path variable within the scripts.
+3. Open Command Prompt or PowerShell with administrative privileges.
+4. Navigate to the directory containing the scripts.
+5. Run the desired script using the following commands:
 
    ```batch
    create-project.cmd
@@ -38,7 +46,7 @@ This repository contains a set of scripts to automate the management of project 
    delete-project.cmd
    ```
 
-5. To add the directory containing the scripts to your global PATH variable:
+6. To add the directory containing the scripts to your global PATH variable:
 
    - Open Control Panel.
    - Go to System and Security > System.
@@ -48,7 +56,7 @@ This repository contains a set of scripts to automate the management of project 
    - Add the path to the directory containing the scripts to the list of paths, separated by semicolons.
    - Click "OK" to save the changes.
 
-6. Follow the on-screen prompts to perform the desired action on project directories.
+7. Follow the on-screen prompts to perform the desired action on project directories.
 
 ## Scripts Overview
 
