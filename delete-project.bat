@@ -154,9 +154,12 @@ for /f %%i in ('dir /b /ad "!project_path!" 2^>null') do (
                 for /d %%c in ("%%b\*") do (
                     for /f "tokens=4,5,*" %%d in ('dir "%%c" /al  2^>nul') do (                    
                         set "link_target=%%e"
+                        
                         if /i "!link_target!"=="[!sub_project_path!]" (
                             rd /s /q %%c\%%d
+                            echo Found %%c\%%d
                             echo Unlinked !sub_project_name! from %%a.
+                            echo.
                         )
                     )
                 )
@@ -164,14 +167,20 @@ for /f %%i in ('dir /b /ad "!project_path!" 2^>null') do (
                 :: For other folders, directly search for symbolic links
                 for /f "tokens=4,5,*" %%f in ('dir "%%b" /al  2^>nul') do (     
                     set "link_target=%%g"
+                    
                     if /i "!link_target!"=="[!sub_project_path!]" (
                         rd /s /q %%b\%%f
+                        echo Found %%b\%%f
                         echo Unlinked !sub_project_name! from %%a.
+                        echo.
                     )
+
                     if /i "!link_target!"=="[!project_path!]" (
                         rd /s /q %%b\%%f
+                        echo Found %%b\%%f
                         echo Unlinked !project_name! from %%a.
-                    )
+                        echo.
+                    )                   
                 )
             )
         )
@@ -183,6 +192,7 @@ for /f %%i in ('dir /b /ad "!project_path!" 2^>null') do (
 if exist "%project_path%" (
     rd /s /q "%project_path%"
     echo Project directory deleted.
+    echo .
 )
 ::#endregion
 

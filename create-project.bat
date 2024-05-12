@@ -593,8 +593,10 @@ if not exist "%sub_project_path%" (
     md "%sub_project_path%"
 
     echo Project directory created.
+    echo.
 ) else (
     echo Project directory already exists.
+    echo.
 )
 ::#endregion
 
@@ -612,8 +614,10 @@ if not exist "%organization_project_path%" (
     mklink /D "%organization_project_path%" "%project_path%"
 
     echo Project linked to organization.
+    echo.
 ) else (
     echo Project already linked to organization.
+    echo.
 )
 ::#endregion
 
@@ -631,8 +635,10 @@ if not exist "%platform_project_path%" (
     mklink /D "%platform_project_path%" "%sub_project_path%"
 
     echo Sub-project linked to platform.
+    echo.
 ) else (
     echo Sub-project already linked to platform.
+    echo.
 )
 ::#endregion
 
@@ -650,8 +656,10 @@ if not exist "%language_project_path%" (
     mklink /D "%language_project_path%" "%sub_project_path%"
 
     echo Sub-project linked to language.
+    echo.
 ) else (
     echo Sub-project already linked to language.
+    echo.
 )
 
 if /i "!language!"=="php" (
@@ -659,6 +667,7 @@ if /i "!language!"=="php" (
     mklink /D "C:\xampp8\htdocs\!sub_project_name!" "%sub_project_path%"
     mklink /D "C:\xampp\htdocs\!sub_project_name!" "%sub_project_path%"
     echo Project linked to xampp.
+    echo.
 )
 ::#endregion
 
@@ -676,8 +685,10 @@ if not exist "%framework_project_path%" (
     mklink /D "%framework_project_path%" "%sub_project_path%"
 
     echo Sub-project linked to framework.
+    echo.
 ) else (
     echo Sub-project already linked to framework.
+    echo.
 )
 ::#endregion
 
@@ -695,11 +706,14 @@ if not exist "%lang_frame_project_path%" (
     mklink /D "%lang_frame_project_path%" "%sub_project_path%"
 
     echo Sub-project linked to lang-frame.
+    echo.
 ) else (
     echo Sub-project already linked to lang-frame.
+    echo.
 )
 ::#endregion
 
 
 echo "Project setup completed."
+echo.
 pause
