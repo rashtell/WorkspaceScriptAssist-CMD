@@ -50,6 +50,7 @@ setlocal EnableDelayedExpansion
     set /p project_name=Enter project name: 
     if "!project_name!"=="" (
         echo Project name cannot be empty. Please try again.
+        echo.
         if "!is_projects_path_empty!"=="true" (
             goto :input_project_name
         ) else (
@@ -81,6 +82,7 @@ setlocal EnableDelayedExpansion
                 set /a "index+=1"
                 echo !index!. %%i
             )
+            echo.
 
             :: Prompt for the project index
             set "choice="
@@ -110,6 +112,7 @@ setlocal EnableDelayedExpansion
     :: Echo the selected project
     if not defined project_name (
         echo Invalid project index. Please enter a valid index.
+        echo.
         goto :input_project_name
     ) 
     ::#endregion Project
@@ -138,6 +141,7 @@ setlocal EnableDelayedExpansion
     set /p sub_project_name=Enter sub-project name: 
     if "!sub_project_name!"=="" (
         echo Sub_project name cannot be empty. Please try again.
+        echo.
         if "!is_sub_projects_path_empty!"=="true" (
             goto :input_sub_project_name
         ) else (
@@ -169,6 +173,7 @@ setlocal EnableDelayedExpansion
                 set /a "index+=1"
                 echo !index!. %%i
             )
+            echo.
 
             :: Prompt for the sub-project index
             set "choice="
@@ -198,6 +203,7 @@ setlocal EnableDelayedExpansion
     :: Echo the selected sub_project
     if not defined sub_project_name (
         echo Invalid sub-project index. Please enter a valid index.
+        echo.
         goto :input_sub_project_name
     ) 
     ::#endregion Sub-project
@@ -230,6 +236,7 @@ setlocal EnableDelayedExpansion
     set /p organization_name=Enter organization name: 
     if "!organization_name!"=="" (
         echo Organization name cannot be empty. Please try again.
+        echo.
         if "!is_organizations_path_empty!"=="true" (
             goto :input_organization_name
         ) else (
@@ -261,6 +268,7 @@ setlocal EnableDelayedExpansion
                 set /a "index+=1"
                 echo !index!. %%i
             )
+            echo.
 
             :: Prompt for the organization index
             set "choice="
@@ -290,6 +298,7 @@ setlocal EnableDelayedExpansion
     :: Echo the selected organization
     if not defined organization_name (
         echo Invalid organization index. Please enter a valid index.
+        echo.
         goto :input_organization_name
     ) 
     ::#endregion Project
@@ -322,6 +331,7 @@ setlocal EnableDelayedExpansion
     set /p platform=Enter platform name: 
     if "!platform!"=="" (
         echo Platform name cannot be empty. Please try again.
+        echo.
         if "!is_platforms_path_empty!"=="true" (
             goto :input_platform
         ) else (
@@ -353,6 +363,7 @@ setlocal EnableDelayedExpansion
                 set /a "index+=1"
                 echo !index!. %%i
             )
+            echo.
 
             :: Prompt for the platform index
             set "choice="
@@ -382,6 +393,7 @@ setlocal EnableDelayedExpansion
     :: Echo the selected platform
     if not defined platform (
         echo Invalid platform index. Please enter a valid index.
+        echo.
         goto :input_platform
     ) 
     ::#endregion Project
@@ -414,6 +426,7 @@ setlocal EnableDelayedExpansion
     set /p language=Enter language name: 
     if "!language!"=="" (
         echo Language name cannot be empty. Please try again.
+        echo.
         if "!is_languages_path_empty!"=="true" (
             goto :input_language
         ) else (
@@ -445,6 +458,7 @@ setlocal EnableDelayedExpansion
                 set /a "index+=1"
                 echo !index!. %%i
             )
+            echo.
 
             :: Prompt for the language index
             set "choice="
@@ -474,6 +488,7 @@ setlocal EnableDelayedExpansion
     :: Echo the selected language
     if not defined language (
         echo Invalid language index. Please enter a valid index.
+        echo.
         goto :input_language
     ) 
     ::#endregion Project
@@ -511,6 +526,7 @@ setlocal EnableDelayedExpansion
     set /p framework=Enter framework name: 
     if "!framework!"=="" (
         echo Framework name cannot be empty. Please try again.
+        echo.
         if "!is_frameworks_path_empty!"=="true" (
             goto :input_framework
         ) else (
@@ -542,6 +558,7 @@ setlocal EnableDelayedExpansion
                 set /a "index+=1"
                 echo !index!. %%i
             )
+            echo.
 
             :: Prompt for the framework index
             set "choice="
@@ -571,6 +588,7 @@ setlocal EnableDelayedExpansion
     :: Echo the selected framework
     if not defined framework (
         echo Invalid framework index. Please enter a valid index.
+        echo.
         goto :input_framework
     ) 
     ::#endregion Project

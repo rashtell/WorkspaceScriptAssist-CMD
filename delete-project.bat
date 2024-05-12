@@ -50,6 +50,7 @@ setlocal EnableDelayedExpansion
     set /p project_name=Enter project name: 
     if "!project_name!"=="" (
         echo Project name cannot be empty. Please try again.
+        echo.
         if "!is_projects_path_empty!"=="true" (
             goto :input_project_name
         ) else (
@@ -81,6 +82,7 @@ setlocal EnableDelayedExpansion
                 set /a "index+=1"
                 echo !index!. %%i
             )
+            echo.
 
             :: Prompt for the project index
             set "choice="
@@ -110,6 +112,7 @@ setlocal EnableDelayedExpansion
     :: Echo the selected project
     if not defined project_name (
         echo Invalid project index. Please enter a valid index.
+        echo.
         goto :input_project_name
     ) 
     ::#endregion Project
@@ -136,14 +139,17 @@ for /f %%i in ('dir /b /ad "!project_path!" 2^>null') do (
     if exist !xampp7Link! (
         rd /s /q !xampp7Link!
         echo Unlinked !sub_project_name! from xampp7.
+        echo.
     )
     if exist !xampp8Link! (
         rd /s /q !xampp8Link!
         echo Unlinked !sub_project_name! from xampp8.
+        echo.
     )
     if exist !xamppLink! (
         rd /s /q !xamppLink!
         echo Unlinked !sub_project_name! from xampp.
+        echo.
     )
 
     :: Loop through folders up to two generations deep
