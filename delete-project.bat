@@ -2,19 +2,19 @@
 :: Dependencies - pascal-case.bat
 
 :: Elevate the current console window to admin
-@REM ::#region
-@REM setlocal
-@REM cd /d "%~dp0"
-@REM >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+::#region
+setlocal
+cd /d "%~dp0"
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
-@REM if "%errorlevel%" NEQ "0" (
-@REM     powershell -Command "Start-Process '%0' -Verb RunAs"
-@REM     exit /b
-@REM )
+if "%errorlevel%" NEQ "0" (
+    powershell -Command "Start-Process '%0' -Verb RunAs"
+    exit /b
+)
 
-@REM cd \
-@REM endlocal
-@REM ::#endregion
+cd \
+endlocal
+::#endregion
 
 :: Actual script starts here
 setlocal EnableDelayedExpansion
