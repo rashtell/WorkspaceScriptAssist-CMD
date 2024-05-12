@@ -152,7 +152,7 @@ for /f %%i in ('dir /b /ad "!project_path!" 2^>null') do (
             if %%a==!workspace_path!\lang-frames (   
                 :: For lang-frames folder, go one level deeper
                 for /d %%c in ("%%b\*") do (
-                    for /f "tokens=5,6,*" %%d in ('dir "%%c" /al  2^>nul') do (                    
+                    for /f "tokens=4,5,*" %%d in ('dir "%%c" /al  2^>nul') do (                    
                         set "link_target=%%e"
                         if /i "!link_target!"=="[!sub_project_path!]" (
                             rd /s /q %%c\%%d
@@ -162,7 +162,7 @@ for /f %%i in ('dir /b /ad "!project_path!" 2^>null') do (
                 )
             ) else (
                 :: For other folders, directly search for symbolic links
-                for /f "tokens=5,6,*" %%f in ('dir "%%b" /al  2^>nul') do (     
+                for /f "tokens=4,5,*" %%f in ('dir "%%b" /al  2^>nul') do (     
                     set "link_target=%%g"
                     if /i "!link_target!"=="[!sub_project_path!]" (
                         rd /s /q %%b\%%f
