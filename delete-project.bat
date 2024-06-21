@@ -131,25 +131,12 @@ for /f %%i in ('dir /b /ad "!project_path!" 2^>null') do (
     set "sub_project_path=!project_path!\!sub_project_name!"
 
     :: Handle Xampp
-    set "xampp7Link=C:\xampp7.4\htdocs\!sub_project_name!"
-    set "xampp8Link=C:\xampp8\htdocs\!sub_project_name!"
-    set "xamppLink=C:\xampp\htdocs\!sub_project_name!"
-    
-    :: Remove symbolic links from XAMPP directories if they exist
-    if exist !xampp7Link! (
-        rd /s /q !xampp7Link!
-        echo Unlinked !sub_project_name! from xampp7.
-        echo.
-    )
-    if exist !xampp8Link! (
-        rd /s /q !xampp8Link!
-        echo Unlinked !sub_project_name! from xampp8.
-        echo.
-    )
-    if exist !xamppLink! (
-        rd /s /q !xamppLink!
-        echo Unlinked !sub_project_name! from xampp.
-        echo.
+    for /d %%i in (C:\xampp*) do (
+        if exist "%%i\htdocs\!sub_project_name!" (
+            rd /s /q "%%i\htdocs\!sub_project_name!"
+            echo Unlinked !sub_project_name! from %%i.
+            echo.
+        )
     )
 
     :: Loop through folders up to two generations deep
