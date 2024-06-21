@@ -1,4 +1,22 @@
 @echo off
+:: Dependencies - pascal-case.bat
+
+:: Elevate the current console window to admin
+::#region
+setlocal
+cd /d "%~dp0"
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+
+if "%errorlevel%" NEQ "0" (
+    powershell -Command "Start-Process '%0' -Verb RunAs"
+    exit /b
+)
+
+cd \
+endlocal
+::#endregion
+
+:: Actual script starts here
 setlocal enabledelayedexpansion
 
 
@@ -30,9 +48,10 @@ for /d %%a in (!xampp_base!) do (
                 set "link_path=%%d\htdocs\!link_name!"
 
                 if not exist "!link_path!" (
-                    echo Creating link: !link_name! - !link_target! in %%d\htdocs
+                    @REM echo Creating link: !link_name! - !link_target! in %%d\htdocs
 
                     mklink /D "!link_path!" "!link_target!"
+                    @REM echo !link_name! !link_path! !link_target!
 
                     echo Created link: !link_name! in %%d\htdocs
                 )
