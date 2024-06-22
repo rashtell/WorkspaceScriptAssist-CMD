@@ -3,15 +3,20 @@
 
 :: Elevate the current console window to admin
 ::#region
+:: Set the current directory to the script's directory
 setlocal
 cd /d "%~dp0"
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
+:: Check and request admin privileges if not already elevated
+::#region
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 if "%errorlevel%" NEQ "0" (
     powershell -Command "Start-Process '%0' -Verb RunAs"
     exit /b
 )
+::#endregion
 
+:: Change directory to the root of the current drive
 cd \
 endlocal
 ::#endregion
